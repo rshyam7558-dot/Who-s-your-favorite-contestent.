@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Favourite Contestant Voting</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f4f9;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    .quiz-box {
+      background: #fff;
+      padding: 25px;
+      border-radius: 12px;
+      box-shadow: 0px 6px 18px rgba(0,0,0,0.1);
+      text-align: center;
+      width: 320px;
+    }
+    h2 {
+      margin-bottom: 20px;
+      font-size: 20px;
+      color: #333;
+    }
+    label {
+      display: block;
+      margin: 10px 0;
+      padding: 8px 12px;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+    label:hover {
+      background: #f0f0f0;
+    }
+    button {
+      margin-top: 15px;
+      padding: 10px 20px;
+      border: none;
+      background: #2b6ef6;
+      color: white;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+    button:hover {
+      background: #1743a3;
+    }
+  </style>
+</head>
+<body>
+  <div class="quiz-box">
+    <h2>WHO IS YOUR FAVOURITE CONTESTANT?</h2>
+    <form id="voteForm">
+      <label><input type="radio" name="contestant" value="Alex"> Alex</label>
+      <label><input type="radio" name="contestant" value="Gagan Pakhar"> Gagan Pakhar</label>
+      <label><input type="radio" name="contestant" value="Shivani Mishra"> Shivani Mishra</label>
+      <button type="submit">Vote</button>
+    </form>
+  </div>
+
+  <script>
+    const form = document.getElementById("voteForm");
+
+    form.addEventListener("submit", function(e) {
+      e.preventDefault();
+      const selected = document.querySelector("input[name='contestant']:checked");
+      if (selected) {
+        alert("Thanks for voting for " + selected.value + "!");
+        selected.checked = false;
+      } else {
+        alert("Please select an option before voting!");
+      }
+    });
+  </script>
+</body>
+</html>
